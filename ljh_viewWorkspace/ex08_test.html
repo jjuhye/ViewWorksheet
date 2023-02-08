@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">유저 검색</h1>
+    <input type="text" class="input_userId">
+    <p class="res"></p>
+    <script>
+        const userList=[
+            {id:1001, name:'홍길동'},
+            {id:1002, name:'유재석'},
+            {id:1003, name:'하하'},
+            {id:1004, name:'노홍철'},
+            {id:1005, name:'길'},
+        ]
+        const input = document.querySelector('input');
+        const p=document.querySelector('p');
+
+        input.addEventListener('keyup',()=>{
+            if(event.key==='Enter'){
+                findUser(event.target.value);
+            }
+        })
+
+        function findUser(value){
+            for(let i=0; i<userList.length; i++){
+                if(value==userList[i].id){
+                    p.innerHTML=userList[i].name;
+                }
+            }
+            p.innerHTML='존재하지 않는 회원';
+        }
+
+    </script>
+</body>
+</html>

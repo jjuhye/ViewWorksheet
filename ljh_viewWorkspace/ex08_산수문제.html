@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 5px;
+        }
+
+        button {
+            margin: 10px;
+        }
+        span{
+            display:inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">산수 문제를 풀어 봅시다.</h1>
+    자동으로 문제가 만들어 집니다.<br>
+    답 입력 후 [채점] 버튼을 누르세요.<br>
+    [다시] 버튼을 누르면 새로운 문제가 출력됩니다.<br>
+    나누기 결과는 정수입니다.<br>
+    <hr>
+    <div class="question">
+        <span class="q1"></span><input type="number"><br>
+        <span class="q2"></span><input type="number"><br>
+        <span class="q3"></span><input type="number"><br>
+        <span class="q4"></span><input type="number"><br>
+    </div>
+    <button class="check">채점</button>
+    0
+    <button class="restart">다시</button>
+
+    <script>
+
+        const q1=document.querySelector('.q1');
+        const q2=document.querySelector('.q2');
+        const q3=document.querySelector('.q3');
+        const q4=document.querySelector('.q4');
+        // q1.innerHTML="aa";
+        // q2.innerHTML="bb";
+        // q3.innerHTML="aa";
+        // q4.innerHTML="aa";
+        
+        window.onload = function() {
+            ranArr();
+            q1.innerHTML=quizList[0];
+            q2.innerHTML=quizList[1];
+            q3.innerHTML=quizList[2];
+            q4.innerHTML=quizList[3];
+        }
+        
+        const qqq=null;
+        const answer=0;
+        function makeQ(){
+            let no1=parseInt(Math.random()*20)+1;
+            let no2=parseInt(Math.random()*20)+1;
+            let symbolNo=parseInt(Math.random()*4);
+            getSymbol(symbolList,symbolNo);
+            if(symbolNo==0){
+                answer=no1+no2;
+            }else if(symbolNo==1){
+                answer=no1-no2;
+            }else if(symbolNo==2){
+                answer=no1*no2;
+            }else{
+                answer=parseInt(no1/no2);
+            }
+            qqq=""+no1+" "+getSymbol+" "+no2;
+            console.log(qqq);
+            console.log(answer);
+        }
+        
+        
+        const symbolList=['+','-','*','/'];
+        function getSymbol(arr,num){
+            for(let i=0; i<arr.length; i++){
+                if(num==i){
+                    return arr[i];
+                }
+            }
+        }
+        
+        const quizList=[];
+        const answerList=[];
+        function ranArr(){
+            for(let i=0; i<4; i++){
+                makeQ();
+                quizList[i] = qqq;
+                answerList[i] = answer;
+            }
+        }
+
+        // ranArr(ranArrList);
+        // console.log('\n문제1) 랜덤배열 생성');
+        // console.log(ranArrList);
+
+        // console.log('\n문제2) 배열값 출력');
+        // ranArrList.forEach(value=>console.log(value));
+
+        // console.log('\n문제3) 배열값중 홀수만 따로 배열 만들기');
+        // result=ranArrList.filter(value=>value%2==1);
+        // console.log(result);
+
+        // console.log('\n문제4) 배열의 총합 출력');
+        // result=ranArrList.reduce((sum,value)=>sum+=value);
+        // console.log(result);
+
+    </script>
+
+</body>
+
+</html>

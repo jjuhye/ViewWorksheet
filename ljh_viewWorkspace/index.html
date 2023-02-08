@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .move{
+            width: 250px;
+            height: 250px;
+            background-color: yellow;
+        }
+        .btn{
+            width: 200px;
+            height: 50px;
+            color: blue;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box move"></div>
+    <h1 class="btn"> 네모 이동 </h1>
+
+    <div>
+        <button class="btn1">네모 키우기</button>
+        <button class="btn2">네모 이동하기</button>
+        <button class="btn3">네모 회전하기</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector('.btn');
+        const box = document.querySelector('div');
+
+        box.addEventListener('mouseover',()=>{
+            box.style.transform='translateX(400px)'
+            box.style.transition='transform 2s ease-in';
+            btn.innerHTML="네모=>이동";
+        })
+
+        box.addEventListener('mouseout',()=>{
+            box.style.transform='translateX(0px)'
+            box.style.transition='transform 2s ease-in';
+            btn.innerHTML="네모 제자리";
+        })
+
+        const btnSet=document.querySelectorAll('button');
+        const btn1=btnSet[0];
+        const btn2=btnSet[1];
+        const btn3=btnSet[2];
+        
+        btn1.addEventListener('click',()=>{
+            box.style.transform='scale(1.2,1.2)';
+            box.style.transition='transform 1s ease-in';
+            btn.innerHTML="네모 키우기";
+        })
+
+        btn1.addEventListener('mouseout',()=>{
+            box.style.transform='scale(1,1)';
+            btn.innerHTML="네모 제자리";
+        })
+
+        btn2.addEventListener('click',()=>{
+            box.style.transform='translate(30px,30px)';
+            box.style.transition='transform 1s ease-in';
+            btn.innerHTML="네모 이동";
+        })
+
+        btn2.addEventListener('mouseout',()=>{
+            box.style.transform='translateX(0px)'
+            btn.innerHTML="네모 제자리";
+        })
+
+        btn3.addEventListener('click',()=>{
+            box.style.transform='rotate(360deg)';
+            box.style.transition='transform 1s ease-in';
+            btn.innerHTML="네모 회전";
+        })
+
+        btn3.addEventListener('mouseout',()=>{
+            box.style.transform='rotate(0deg)';
+            btn.innerHTML="네모 제자리";
+        })
+
+        // console.log(btnSet);
+
+        // function clicked(){
+        //     alert('클릭했다')
+        // }
+
+        // btn.onclick=function(){
+        //     alert('클릭했다');
+        //     box.style.backgroundColor="green";
+        // }
+        // btn.onmouseover=function(){
+        //     box.style.backgroundColor="pink";
+        // }
+        // btn.onmouseout=function(){
+        //     box.style.backgroundColor="brown";
+        // }
+        // box.onclick=function(){
+        //     box.style.backgroundColor="yellow"
+        // }
+
+        // btn.addEventListener('click',()=>(alert(`event=${event}`)))
+        // btn.addEventListener('click',(event)=>(alert(`event.type=${event.type}`)))
+    </script>
+</body>
+</html> 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Itim&family=Lato:wght@700&display=swap');
+        *{
+            box-sizing: border-box;
+            margin:0;
+            padding: 0;
+            background-color: skyblue;
+            font-family: 'Lato';
+            font-size: 20px;
+        }
+
+        div{
+            color: white;
+        }
+
+        .grid{
+            display: grid;
+            gap: 7px;
+            height: 100vh;
+            grid-template:
+            "header header header header" 1fr
+            "nav main main main" 10fr
+            "footer footer footer footer" 2fr
+            ;
+        }
+
+        .header{
+            background-color: pink;
+            grid-area: header;
+        }
+        .nav{
+            background-color: indianred;
+            grid-area: nav;
+        }
+        .main{
+            background-color: rgb(138, 83, 83);
+            grid-area:main ;
+        }
+        .footer{
+            background-color: rgb(116, 5, 5);
+            grid-area: footer;
+        }
+
+        .item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .grid{
+            display: grid;
+            gap: 4px;
+            height: 100vh;
+            grid-template:
+            "header" 1fr
+            "nav" 2fr
+            "main" 7fr
+            "footer" 2fr
+            ;
+            }
+            *{
+            font-size: 120%;
+            }
+            .header{
+                background-color: aqua;
+            }
+            .nav{
+                background-color: aquamarine;
+            }
+            .main{
+                background-color: rgb(81, 127, 145);
+            }
+            .footer{
+                background-color: rgb(25, 84, 107);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="grid">
+        <div class="header item">header</div>
+        <div class="nav item">nav</div>
+        <div class="main item">main</div>
+        <div class="footer item">footer</div>
+    </div>
+    
+</body>
+</html>

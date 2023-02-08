@@ -1,0 +1,56 @@
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    height: 75px;
+}
+
+#intro{
+    height: 75px;
+    display:grid;
+    grid-template: "logo menu" 1fr / 1fr 1fr;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.menu{
+    list-style: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    grid-area: menu;
+    display: grid;
+    grid-template: "one two three" 1fr / 1fr 1fr 1fr;
+
+    height:75px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.logo{
+    grid-area: "logo menu";
+    background-color: coral;
+    height: 75px;
+    line-height: 75px;
+    padding-left: 50px;
+    display: block;
+}
+
+.one{
+    grid-area: one;
+    background-color: rgb(185, 97, 97);
+}
+.two{
+    grid-area: two;
+    background-color: rgb(180, 75, 75);
+}
+.three{
+    grid-area: three;
+    background-color: rgb(131, 45, 45);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .box1{
+            width: 20%;
+            background-color: green;
+            color: white;
+            padding: 20px;
+        }
+
+        .box2{
+            width: 80%;
+            background-color: orange;
+            color: black;
+            padding: 20px;
+        }
+
+        @media screen and(max-width: 500px) {
+            .container{
+                flex-direction: column;
+            }
+            .box1{
+                width:100%;
+                background-color: pink;
+            }
+            .box2{
+                width:100%;
+                background-color: violet;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">박스입니다</div>
+    <div class="container"></div>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+</body>
+</html>

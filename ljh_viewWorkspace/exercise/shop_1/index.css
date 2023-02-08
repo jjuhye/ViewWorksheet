@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: 75px;
+}
+
+/* Navigation */
+#intro{
+    height: 100%;
+    display: grid;
+
+    grid-template: "logo menu" 1fr / 1fr 1fr;
+}
+
+.logo{
+    height: 100%;
+    background-color: #fbfbfb;
+    grid-area: logo;
+    height: 75px;
+    line-height: 75px;
+    margin-left:20px;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+}
+
+ul {
+    height: 100%;
+    font-weight: bold;
+    list-style: none;
+    font-size: 20px;
+    grid-area: menu;
+    display: grid;
+    grid-template: "one two three" 1fr / 1fr 1fr 1fr;
+
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+}
+
+ul .one {
+    background-color: #efeff6;
+    grid-area: one;
+}
+
+ul .two {
+    background-color: #dcdcec;
+    grid-area: two;
+}
+
+ul .three {
+    background-color: #cbcae3;
+    grid-area: three;
+}
+
+/* main */
+main{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+main div a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    color:white;
+    padding-bottom: 10px;
+}
+
+.item{
+    width:50%;
+}
+
+.line{
+    width:100%;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
+}
+
+main .one {
+    background-color: #532fa1;
+}
+
+main .two {
+    background-color: #a44789;
+}
+
+main .three {
+    background-color: #3ab6bc;
+}
+
+.item:hover img{
+    transition: transform 1s linear;
+    transform: scale(1.3);
+}
+
+footer{
+    padding: 10px;
+}
+
+@media screen and (max-width: 760px) {
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    h2{
+        font-size: 200%;
+    }
+
+    .item{
+        width:100%;
+    }
+
+    #footer{
+        text-align: center;
+    }
+}

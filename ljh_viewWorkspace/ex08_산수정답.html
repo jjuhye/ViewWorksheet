@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .score{
+            margin: 10px;
+        }
+        span{
+            /* display block은 블럭은 한줄을 다 차지한다  */
+            /* block 요소 안에서 block 처럼 사용  */
+            display: inline-block; 
+            /* display: block; */
+            width: 15px;
+            text-decoration: ;
+        }
+        input {
+            width: 100px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        
+        <!-- <span id="x">1</span>  <span id="op">+</span> <span id="y">2</span> 
+        <input type="number" class="user"> 
+        <span id="x">2</span>  <span id="op">-</span> <span id="y">5</span> 
+        <input type="number" class="user"> 
+        <span id="x">1</span>  <span id="op">*</span> <span id="y">2</span> 
+        <input type="number" class="user">
+        <span id="x">1</span>  <span id="op">/</span> <span id="y">2</span> 
+        <input type="number" class="user"> -->
+    </div>
+    <div class="result">
+        <button class="btn1">채첨</button>
+        <span class="score"> 0 </span>
+        <button class="btn2"> 다시 </button>
+    </div>
+    <script>
+        const list = document.querySelector(".list");
+        const btn1 = document.querySelector(".btn1");
+        const btn2 = document.querySelector(".btn2");
+     
+        const size = 4;
+       
+        const quizSet = [];
+        const userAnswer=[];
+        const opSet = ['+','-','*','/'];
+
+        function init(){
+            for(let i =0; i < size;i++){
+                quizSet[i] = addTemplete();
+            }
+            let idx =0;
+            quizSet.forEach((obj)=>{
+                if(obj.op==='+'){
+                    quizSet[idx]= obj.x + obj.y;
+                }else if(obj.op==='-'){
+                    quizSet[idx]= obj.x - obj.y;
+                }else if(obj.op==='*'){
+                    quizSet[idx]= obj.x * obj.y;
+                }else{
+                    quizSet[idx]= parseInt(obj.x / obj.y);
+                }
+                idx++;
+            });
+            console.log(quizSet);
+        }
+        function addTemplete(){
+            const obj = createQuiz();
+            const div = document.createElement('div'); // <div><span class="x">...</div>
+            div.innerHTML=`<span class="x">${obj.x}</span>
+                            <span class="op">${obj.op}</span>
+                            <span class="y">${obj.y}</span> 
+                        <input type="text" class="user"> `;
+            list.appendChild(div); 
+            return obj;
+        }
+        function getAnswer(){       
+            let cnt =0;
+            const inputs = document.querySelectorAll("input");
+            for(let i =0; i < size;i++){
+                userAnswer[i]= parseInt(inputs[i].value);
+            }
+            console.log(userAnswer);
+        }
+
+        btn1.addEventListener('click',event=>{
+            getAnswer();
+            checkAnswer();
+            
+        })
+        btn2.addEventListener('click',event=>{
+            // 현재 페이지 새로고침 
+            location.reload();
+            
+        })
+
+        function checkAnswer(){
+            let score =0;
+            const spans =  document.querySelectorAll("span");
+            let spanIdx =0;
+            for(let i =0; i < size;i++){
+                if(quizSet[i]!==userAnswer[i]){
+                    spans[spanIdx].style.textDecoration="line-through";
+                    spans[spanIdx+1].style.textDecoration="line-through";
+                    spans[spanIdx+2].style.textDecoration="line-through";
+                    spanIdx+=3;
+                }else{
+                    score+=1;
+                }
+            }
+            spans[spans.length-1].innerHTML = score;
+        }
+
+        function createQuiz(){
+            return {
+                x:getRendomNum(1,10),
+                y:getRendomNum(1,10),
+                op:opSet[getRendomNum(0,opSet.length-1)]
+            };
+        }
+        function getRendomNum(min,max){
+            return parseInt(Math.random()*(max-min+1))+min;
+        }
+        // 웹 화면이 출력할때 : 로드될때 ==> 맨 첫째로 호출 
+        addEventListener("load", event => init());
+    </script>
+</body>
+</html>

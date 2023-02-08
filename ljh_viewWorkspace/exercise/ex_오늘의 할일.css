@@ -1,0 +1,90 @@
+*{
+    box-sizing:border-box;
+    margin:0px;
+    padding:0px;
+}
+
+p{
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a{
+    color:orange;
+    font-weight: bold;
+}
+
+.line{
+    border : dotted 1px lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.wrap{
+    display: flex;
+    padding:30px;
+    flex-direction:column;
+    align-items: center;
+    background-color: rgb(233, 230, 230);
+}
+
+.container{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px rgb(168, 167, 167) solid;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 400px;
+    height: 100%;
+}
+
+.context{
+    width: 100%;
+}
+
+.contents{
+    padding:10px;
+    border:solid 1px lightgray;
+    height: 100%;
+}
+
+h3{
+    background-color: orange;
+    color: white;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+h5{
+    background-color: rgb(240, 234, 234);
+    color: black;
+    padding:3px;
+    padding-left: 15px;
+}
+
+.kimchi{
+    color: red;
+    font-weight: 600;
+}
+
+.egg{
+    color: orange;
+    font-weight: 600;
+}
+
+.soup{
+    font-size: 20px;
+    color: blue;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.date{
+    text-align: right;
+    color:gray;
+    font-size: 10px;
+}

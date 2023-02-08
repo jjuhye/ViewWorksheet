@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        .box{
+            border: 1px solid red;
+            margin-bottom: 30px;
+            padding: 30px;
+        }
+
+        .text{
+            font-size: 24px;
+            font-weight: 500;;
+        }
+
+        .box div{
+            height: 50px;
+        }
+
+        .item1{
+            background-color: red;
+            /* 부모요소사이즈 크기 절반 + 20px */
+            /* + - 무조건 띄어쓰기를 해야지 작동한다 */
+            width: calc(20px + 50%);
+        }
+        .item2{
+            background-color: green;
+            width: calc(3*20px);
+        }
+        .item3{
+            background-color: blue;
+            width: calc(100% - 70px);
+        }
+        .item4{
+            background-color: yellow;
+            width: calc(100%/4);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="text"> 20px + 50%</span>
+        <div class="item1"></div>
+    </div>
+    <div class="box">
+        <span class="text"> 3*20px </span>
+        <div class="item2"></div>
+    </div>
+    <div class="box">
+        <span class="text"> 100% - 70px </span>
+        <div class="item3"></div>
+    </div>
+    <div class="box">
+        <span class="text"> 100 / 4 </span>
+        <div class="item4"></div>
+    </div>
+</body>
+</html>

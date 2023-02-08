@@ -1,0 +1,59 @@
+h1{
+    background-color: yellow;
+}
+
+h2{
+    color:red;
+}
+
+.coding{
+    color:green;
+}
+
+#coding{
+    color:yellow;
+}
+
+header h2{
+    color:blue;
+}
+
+header p{
+    color:red;
+}
+
+footer h2{
+    color:black;
+}
+
+footer{
+    color:green;
+}
+
+*{
+    box-sizing: border-box;
+    margin:0px;
+}
+
+div{
+    width: 100px;
+    height: 100px;
+    border:1px dotted blue;
+    padding: 10px;
+    background-color: pink;
+    margin: 10px;
+}
+
+.box1{
+    /* box-sizing: content-box; */
+    padding:20px;
+    background-color: blueviolet;
+}
+
+.box3{
+    background-color: coral;
+}
+
+hr{
+    margin:10px 0px;
+}

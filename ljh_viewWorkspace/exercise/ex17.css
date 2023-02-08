@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.box{
+    width: 600px;
+    height: 120px;
+    margin: 0 20px;
+    text-align: center;
+    /* background-color: pink; */
+    background: linear-gradient(red,orange);
+    border: 1PX solid;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.box span{
+    font-size: 32px;
+    font-weight: 700;
+}
+.text1{
+    transition: all 0.4s ease-in-out;
+}
+.text2{
+    transition: all 0.4s ease-in-out 0.1s;
+}
+.text3{
+    transition: all 0.4s ease-in-out 0.2s;
+}
+.text4{
+    transition: all 0.4s ease-in-out 0.3s;
+}
+.text5{
+    transition: all 0.4s ease-in-out 0.4s;
+}
+.text6{
+    transition: all 0.4s ease-in-out 0.5s;
+}
+.text7{
+    transition: all 0.4s ease-in-out 0.6s;
+}
+.text8{
+    transition: all 0.4s ease-in-out 0.7s;
+}
+.text9{
+    transition: all 0.4s ease-in-out 0.8s;
+}
+.box:hover span{
+    transform:translateY(-20px);
+    color: white;
+}
+
+/* 
+transition: 이벤트(사용자가 화면 움직일때) 작동
+그냥 작동 안됨
+변경하는 기능은 transform
+*/
+
+.loading{
+    font-weight: bold;
+}
+.heart svg{
+    width: 42px;
+    height: 42px;
+    color:red;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+.star svg{
+    width: 60px;
+    height: 60px;
+    color:yellow;
+    animation: spinStar 1s ease-in-out infinite;
+}
+
+.loading svg{
+    width: 50px;
+    height: 50px;
+    color:navy;
+    animation: spinLoading 1s ease-in-out infinite;
+}
+
+/* 화면 실행하자마자 실행하기 */
+
+@keyframes heartBeat{
+    0%{
+      transform: scale(1,2);
+    }
+    70%{
+        transform:scale(1);
+    }
+    100%{
+        transform: scale(1,2);
+    }
+}
+
+@keyframes spinStar{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes spinLoading{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

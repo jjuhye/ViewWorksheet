@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EX04예제</title>
+    <style>
+        /* 모든클래스 이름이 li1이면 빨간색 */
+        .li1{color:red;}
+        /* ul태그 안에 모든 li태그는 초록색 */
+        ul li{color:green;}
+        /* ul자식 태그들 중에 클래스가 li4인 태그는 주황색 */
+        ul>.li4{color:orange;}
+        /* 클래스 li1과 클래스li2사이에 인접(위아래)클래스는 노란색 */
+        .li1+.li2{color:yellow;}
+        /* 클래스 li1~크래스li5 사이에 있는 모든 형제 태그는 파란색 */
+        .li1~.li5{color:blue;}
+    </style>
+</head>
+<body>
+    <!-- nav>ul>li*5.li -->
+    <nav>
+        <ul>
+            <li class="li1">홈</li>
+            <li class="li2">로그인</li>
+            <li class="li3">회원가입</li>
+            <li class="li4">게시판</li>
+            <li class="li5">질의응답</li>
+        </ul>
+    </nav>
+</body>
+</html>
