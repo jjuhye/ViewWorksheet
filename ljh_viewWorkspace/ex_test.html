@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            margin: 10px;
+        }
+
+        .container div {
+            border: 2px solid black;
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 20px;
+            width: 150px;
+            height: 70px;
+            font-size: 20px;
+            border: 1px solid gray;
+            margin-left: 20px;
+        }
+
+        .on {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <input type="number" class="inputBox" min="1">
+    <script>
+        const input = document.querySelector('.inputBox');
+        const boxs = document.querySelectorAll('.container div');
+
+        let cnt = 1;
+
+        boxs.forEach(box => {
+            box.addEventListener('click', () => {
+                addNum(box);
+                clearBox();
+            })
+        })
+
+        function addNum(box) {
+            box.innerHTML = cnt;
+            cnt++;
+        }
+
+        let num = 0;
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                if (input.value == "") {
+                    alert('찾을 숫자를 입력하세요');
+                } else {
+                    num = input.value;
+                    clearBox();
+                    checkNum();
+                }
+            }
+            input.value = "";
+        });
+
+        function checkNum() {
+            boxs.forEach(box => {
+                if (num == box.innerHTML) {
+                    box.className = 'on';
+                }
+            })
+        }
+
+        function clearBox() {
+            boxs.forEach(box => {
+                box.className == 'on';
+                box.className = 'box';
+            })
+        }
+
+    </script>
+</body>
+
+</html>
