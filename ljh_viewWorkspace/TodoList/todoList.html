@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./todoList.css">
+    <script src="./todoList.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Todo List</h1>
+    </header>
+    <section id="main">
+        <div id="list" style="overflow-y:scroll">
+            <!-- <div class="item" data-id="0" draggable='true'>
+                <h4 class="title">This is what to do!</h4>
+                <span class="msg">Lorem ipsum</span>
+            </div> -->
+        </div>
+        <div id="menu">
+            <div id="addForm">
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" placeholder="제목을 입력하세요">
+                </div>
+                <textarea id="content" rows="4" placeholder="내용을 입력하세요"></textarea>
+                <button id="addBtn">+</button>
+            </div>
+
+            <div id="garbage">
+                X
+            </div>
+        </div>
+    </section>
+    <footer>
+        <h4>Todo List by Juhye. cc by NC SA 4.0</h4>
+    </footer>
+
+    <!-- 아래는 토글 메세지  -->
+    <div class="msg-box">
+        테스트 메시지입니다.
+    </div>
+
+</body>
+
+</html>

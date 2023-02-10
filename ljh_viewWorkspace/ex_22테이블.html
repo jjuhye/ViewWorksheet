@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        table{
+            width: 50vh;
+            height: 50vh;
+            border: 1px solid;
+        }
+        tr, td{
+            text-align: center;
+        }
+        td{
+            border: 1px solid gray;
+        }
+        tr:nth-child(odd){
+            background-color: lightblue;
+        }
+        tr:nth-child(even){
+            background-color: lightpink;
+        }
+        tr:nth-child(2) td:nth-child(2){
+            background-color: lightgreen;
+        }
+
+        tr:nth-child(2){
+            height: 50%;
+        }
+
+        td:nth-child(2){
+            width: 50%
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>테이블 제목</caption>
+        <tr>
+            <td>1</td>
+            <td colspan="2">2</td>
+            <!-- <td>3</td> -->
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td rowspan="2">6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <!-- <td>9</td> -->
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>박스 테스트 </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+        }
+        .box{
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            margin-left: 10px;
+            font-size: 30px;
+            line-height: 40px;
+            text-align: center;
+        }
+        input{
+            width: 80px;
+            font-size: 20px;
+            margin: 10px 5px;
+
+        }
+        .on{
+            background-color: red;
+        }
+        .trash{
+            width: 500px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        .active{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <input type="number">
+    <div class="trash"></div>
+    <script>
+            // 고차함수는 배열에서만 사용가능하다  그래서 박스 요소 배열로 바꿈 그러면 find 이런거 사용가능 
+   let boxs = [...document.querySelectorAll(".box")]; // [box, box, box,box,box]
+        let input = document.querySelector("input");
+        let trash = document.querySelector(".trash");
+        let cnt =1;
+        // 클릭할때 숫자가 넣을 수 있게
+        // 기본적으로 drag 못하게 막아주는데 막기 풀기 : 해당 이벤트 기본값 제거
+        trash.addEventListener('dragover',e=>e.preventDefault());
+        trash.addEventListener('drop',e=>{
+            let num = e.dataTransfer.getData('num');
+            removeBox(num);
+            // alert(num);
+        })
+
+        function removeBox(num){
+            let container = document.querySelector(".container");
+            let foundBox = boxs.find((box)=> box.innerHTML==num);
+            container.removeChild(foundBox);
+            console.log(boxs);
+        }
+
+        boxs.forEach((box)=>{
+            // 태그 객체 들만 이벤트 걸어줄수있다 !! boxs.addEventListner 못함! ==> 배열 이라서 불가능
+            // 클릭 이벤트 등록! => 클릭 이벤트가 발동(트리거) 할때 안에있는 콜백함수 실행! 
+            box.addEventListener("click",()=>{
+                box.innerHTML= cnt;
+                cnt++;
+            })
+            //box.setAttribute("속성이름","값")
+            box.setAttribute("draggable","true");
+
+            // dragstart 햇을떄 이벤트를 모든 박스 적용
+            box.addEventListener('dragstart',e=>{
+                // box == e.target
+                // console.log(box);
+                // console.log(e.target);
+                // let num = e.target.innerHTML;
+                e.dataTransfer.setData('num', e.target.innerHTML)
+                e.target.classList.add('active');
+            })
+
+
+        }); //forEach 종료 
+        input.addEventListener("keyup",()=>{
+            let value = input.value;
+            if(value.trim()===""){
+                return;
+            }
+            // console.log(value);
+            let getBox = boxs.find((box)=>{ return box.innerHTML == value});
+            getBox.classList.add('on');
+        })
+        input.addEventListener("keydown",()=>{
+            let getBox = boxs.find((box)=>box.classList.contains('on'));
+            getBox.classList.remove('on');
+            getBox.innerHTML=" ";
+        })
+    </script>
+</body>
+</html>

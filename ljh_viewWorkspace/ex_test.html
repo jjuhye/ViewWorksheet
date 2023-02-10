@@ -15,13 +15,13 @@
 
         .container {
             display: flex;
-            margin: 10px;
+            padding: 10px;
         }
 
         .container div {
             border: 2px solid black;
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             margin: 10px;
             display: flex;
             justify-content: center;
@@ -32,15 +32,24 @@
 
         input {
             padding: 20px;
-            width: 150px;
-            height: 70px;
-            font-size: 20px;
+            width: 300px;
+            font-size: 30px;
             border: 1px solid gray;
             margin-left: 20px;
         }
 
+        .trash{
+            width: 300px;
+            height: 150px;
+            border: 2px solid black;
+            margin: 20px;
+        }
+
         .on {
             background-color: red;
+        }
+        .active{
+            background-color: green;
         }
     </style>
 </head>
@@ -53,11 +62,13 @@
         <div class="box"></div>
         <div class="box"></div>
     </div>
-    <input type="number" class="inputBox" min="1">
+    <input type="text">
+    <div class="trash">휴지통</div>
     <script>
-        const input = document.querySelector('.inputBox');
-        const boxs = document.querySelectorAll('.container div');
-
+        const input = document.querySelector('input');
+        const boxs = [...document.querySelectorAll('.box')];
+        const trash = document.querySelector('.trash');
+        
         let cnt = 1;
 
         boxs.forEach(box => {
@@ -65,7 +76,28 @@
                 addNum(box);
                 clearBox();
             })
+
+            box.setAttribute('draggable','true');
+            box.addEventListener('dragstart',e=>{
+                e.dataTransfer.setData('num',e.target.innerHTML);
+                console.log(e.dataTransfer.getData('num'));
+                e.target.classList.add('active');
+            })
         })
+        
+        trash.addEventListener('dragover',e=>e.preventDefault());
+        trash.addEventListener('drop',e=>{
+            let num = e.dataTransfer.getData('num');
+            removeBox(num);
+        })
+
+        function removeBox(num){
+            let container=document.querySelector('.container');
+            let foundBox=boxs.find(box=>box.innerHTML==num);
+
+            container.removeChild(foundBox);
+        }
+        
 
         function addNum(box) {
             box.innerHTML = cnt;
@@ -85,7 +117,7 @@
             }
             input.value = "";
         });
-
+        
         function checkNum() {
             boxs.forEach(box => {
                 if (num == box.innerHTML) {
