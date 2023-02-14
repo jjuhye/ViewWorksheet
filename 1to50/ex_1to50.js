@@ -2,10 +2,14 @@ const sBtn=document.querySelector('#start');
 const rBtn=document.querySelector('#restart');
 const over=document.querySelector('#gameOver');
 const game=document.querySelector('.game');
+const timer=document.querySelector('.timer');
+let checkTime=false;
+
 const arrA=[];
 const arrB=[];
 
 sBtn.addEventListener('click',()=>{
+    
     shuffleArr();
     showArr();
     sBtn.style="display: none";
