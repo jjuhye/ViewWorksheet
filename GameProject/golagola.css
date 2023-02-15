@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url(./BodyBG.jpg); */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    background-color: darkgray;
+}
+
+#container{
+    background-color: white;
+    width: 800px;
+    height: 600px;
+    border: 2px solid indianred;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+#showcase{
+    border: 1px indianred solid;
+    background-color: lightpink;
+    width: 580px;
+    height: 100%;
+}
+
+#timeBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background-color: lightgreen;
+    width: 50px;
+    height: 100%;
+    padding: 10px;
+}
+
+#nav{
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    width: 150px;
+    height: 100%;
+}
+
+.time{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+
+table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+td{
+    width: 108px;
+    height: 108px;
+    border: 1px solid;
+    text-align: center;
+    font-size: 35px;
+}
+
+td:hover{
+    font-size: 40px;
+    transition: font-size 0.5s;
+    cursor: pointer;
+}
+
+.active{
+    background-color: powderblue;
+}
+
+.same {
+    animation: change 0.5s;
+}
+
+@keyframes change{
+    0% {
+    opacity: 0;
+    transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
