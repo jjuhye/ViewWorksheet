@@ -10,9 +10,9 @@ body{
     display : flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url(./BodyBG.jpg); */
-    /* background-size: cover;
-    background-repeat: no-repeat; */
+    background-image: url(./pinkBG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: darkgray;
 }
 
@@ -20,15 +20,15 @@ body{
     background-color: white;
     width: 800px;
     height: 600px;
-    border: 2px solid indianred;
+    /* border: 2px solid indianred; */
     display: flex;
     padding: 10px;
     justify-content: space-between;
 }
 
 #showcase{
-    border: 1px indianred solid;
-    background-color: lightpink;
+    border: 10px indianred solid;
+    /* background-color: lightpink; */
     width: 580px;
     height: 100%;
 }
@@ -38,7 +38,7 @@ body{
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     width: 50px;
     height: 100%;
     padding: 10px;

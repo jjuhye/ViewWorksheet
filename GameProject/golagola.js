@@ -1,6 +1,6 @@
 //문제 만들기
 const showcase=document.querySelector('#showcase')
-document.querySelector('#canvas');
+// document.querySelector('#canvas');
 let itemList=null;
 const ranList=new Array(5);
 let itemCnt=10;
@@ -16,6 +16,7 @@ function makeRanArr(){
             ranList[i][k]=num;
         }
     }
+    console.log(ranList);
 }
 
 function makeShowcase(){
@@ -43,7 +44,7 @@ function makeShowcase(){
 //         let ran=Math.floor(Math.random()*25);
 //         let temp;
 //             temp=arrA[0];
-//             arrA[0]=arrA[ran];
+//            arrA[0]=arrA[ran];
 //             arrA[ran]=temp;
 //     }
 // }
@@ -54,79 +55,12 @@ function checkSame(){
         itemList[sel2.y*5+sel2.x*1].innerHTML=0;
     }
 }
-let canvas=document.querySelector('#canvas');
-let ctx=this.canvas.getContext('2d');
-//let y = 0;
-// function test(){
-//     ctx.beginPath();
-//     ctx.rect(0,y,25,25);
-//     ctx.fillStyle='white';
-//     ctx.fill();
-//     ctx.closePath();
-//     y++;
-    
-//     if(y>475){
-//         clearInterval(timer1);
-//     }
-// }
-// let timer1 = setInterval(test(),100);
-
-
-const time=new Time();
-time.timeBar(ctx);
-time.timeBox();
-// let timerBar = setInterval(time.timeBar, 25);
-// let timerBox = setInterval(time.timeBox,10);
-
-
-// //막대 타이머
-// const canvas=document.querySelector('#canvas');
-// const ctx=canvas.getContext('2d');
-
-// let timer=setInterval(timeBar, 25);
-// let y=0;
-
-// function timeBar(){
-//     ctx.beginPath();
-//     ctx.rect(0,y,25,25);
-//     ctx.fillStyle='white';
-//     ctx.fill();
-//     ctx.closePath();
-//     y++;
-
-//     if(y>475){
-//         clearInterval(timer);
-//     }
-// }
-
-// //숫자타이머
-// const time=document.querySelector('.time');
-// let sec=20;
-// let ms=60;
-// let cnt=0;
-
-// let timer2 = setInterval(timeBox,10);
-// function timeBox(){
-//     cnt++;
-//     ms--;
-//     if(cnt == 60){
-//         cnt = 0;
-//         ms=60;
-//         sec--;
-//     }
-//     if(sec==0){
-//         ms=00;
-//         clearInterval(timer2);
-//         // gameOver(){}
-//     }
-//     time.innerHTML = `${sec}: ${ms}`;
-// }
 
 function update(){
     for(let i=0; i<5; i++){
         ranList[i]=[];
         for(let k=0; k<5; k++){
-            let num=Math.floor(Math.random()*itemCnt+1);
+                let num=Math.floor(Math.random()*itemCnt+1);
             ranList[i][k]=num;
         }
     }
@@ -134,6 +68,7 @@ function update(){
 
 makeRanArr();
 makeShowcase();
+
 itemList=[...document.querySelectorAll('td')]
 console.log(itemList);
 
@@ -153,3 +88,12 @@ itemList.forEach(td=>{
         checkSame();
     })
 })
+let canvas=document.querySelector('#canvas');
+let ctx=canvas.getContext('2d');
+let timer=document.querySelector('#timer');
+const time=new Time(canvas, ctx, timer);
+time.init();
+// time.timeBar();
+// time.timeBox();
+// let timerBar = setInterval(time.timeBar, 25);
+// let timerBox = setInterval(time.timeBox,10);
