@@ -4,23 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>골라골라</title>
     <link rel="stylesheet" href="golagola.css">
     <script src="./gola_time.js" defer></script>
     <script src="./golagola.js" defer></script>
 </head>
 <body>
     <div id="container">
-        <div id="showcase"></div>
+        <div id="showcase">
+            <table>
+                <tr>
+                    <td class="item" data-y="0" data-x="0"></td>
+                    <td class="item" data-y="0" data-x="1"></td>
+                    <td class="item" data-y="0" data-x="2"></td>
+                    <td class="item" data-y="0" data-x="3"></td>
+                    <td class="item" data-y="0" data-x="4"></td>
+                </tr>
+                <tr>
+                    <td class="item" data-y="1" data-x="0"></td>
+                    <td class="item" data-y="1" data-x="1"></td>
+                    <td class="item" data-y="1" data-x="2"></td>
+                    <td class="item" data-y="1" data-x="3"></td>
+                    <td class="item" data-y="1" data-x="4"></td>
+                </tr>
+                <tr>
+                    <td class="item" data-y="2" data-x="0"></td>
+                    <td class="item" data-y="2" data-x="1"></td>
+                    <td class="item" data-y="2" data-x="2"></td>
+                    <td class="item" data-y="2" data-x="3"></td>
+                    <td class="item" data-y="2" data-x="4"></td>
+                </tr>
+                <tr>
+                    <td class="item" data-y="3" data-x="0"></td>
+                    <td class="item" data-y="3" data-x="1"></td>
+                    <td class="item" data-y="3" data-x="2"></td>
+                    <td class="item" data-y="3" data-x="3"></td>
+                    <td class="item" data-y="3" data-x="4"></td>
+                </tr>
+                <tr>
+                    <td class="item" data-y="4" data-x="0"></td>
+                    <td class="item" data-y="4" data-x="1"></td>
+                    <td class="item" data-y="4" data-x="2"></td>
+                    <td class="item" data-y="4" data-x="3"></td>
+                    <td class="item" data-y="4" data-x="4"></td>
+                </tr>
+            </table>
+
+        </div>
         <div id="timeBar">
-            timer
-            <canvas id="canvas" width="25px" height="500px" style="background-color: darkred;"></canvas>
+            <img src="./시계.gif" autoplay=1 loop=1 controls width="40px" height="50px"></img>
+            <canvas id="canvas" width="25px" height="515px" style="background-color: darkred;"></canvas>
         </div>
         <div id="nav">
-            게임이름<br>
-            Stage<br>
-            Mission<br>
-            Hit아이템<br>
+            <div id="gameName" style="text-align: center">골라골라</div>
+            <div style="padding-left: 10px">Stage <span id="stage">#</span></div>
+            <div style="padding-left: 10px">Mission <span id="mission">#</span></div>
+            <div id="bag">
+                <img src="./big-sale.png" id="sale" style="display:none" width=120px>
+            </div>
+            <div style="text-align:center"> Hit 아이템
+                <div class="seem" id="hitItem">히트아이템</div>
+            </div>
             <div id="timer">20:00</div>
         </div>
     </div>

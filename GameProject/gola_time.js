@@ -12,7 +12,7 @@ class Time {
     }
 
     init() {
-        this.timer1 = setInterval(this.timeBar, 25);
+        this.timer1 = setInterval(this.timeBar, 24);
         this.timer2 = setInterval(this.timeBox, 10);
     }
     
@@ -25,7 +25,7 @@ class Time {
         this.ctx.closePath();
         this.y++;
         
-        if(this.y>475){
+        if(this.y>490){
             clearInterval(this.timer1);
         }
     }
@@ -44,6 +44,22 @@ class Time {
             clearInterval(this.timer2);
             // gameOver(){}
         }
-        this.timer.innerHTML = `${this.sec}: ${this.ms}`;
+        let showSec=this.sec;
+        let showMs=this.ms;
+        if(this.sec<10) {showSec = '0'+this.sec};
+        if(this.ms<10) {showMs = '0'+this.ms};
+        this.timer.innerHTML = `${showSec} : ${showMs}`;
     }
+
+    //리셋
+    // reset() {
+    //     running = 0;
+    //     time = 0;
+    //     clearTimeout(timerid);
+    //     document.getElementById('stopTime').innerHTML="";
+    //     document.getElementById("start").innerHTML = "시작";
+    //     document.getElementById("output").innerHTML = "<b>00:00:00</b>";
+    //     document.getElementById("startPause").style.backgroundColor = "green";
+    //     document.getElementById("startPause").style.borderColor = "green";
+    // }
 }

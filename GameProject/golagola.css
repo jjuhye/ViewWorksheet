@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Jua', sans-serif;
 }
 
 body{
@@ -20,45 +23,19 @@ body{
     background-color: white;
     width: 800px;
     height: 600px;
-    /* border: 2px solid indianred; */
+    border-radius: 10px;
     display: flex;
     padding: 10px;
     justify-content: space-between;
 }
 
+/* 진열장 */
 #showcase{
-    border: 10px indianred solid;
-    /* background-color: lightpink; */
+    /* border: 10px indianred solid; */
+    border-radius: 10px;
     width: 580px;
     height: 100%;
-}
-
-#timeBar{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    /* background-color: lightgreen; */
-    width: 50px;
-    height: 100%;
-    padding: 10px;
-}
-
-#nav{
-    display: flex;
-    flex-direction: column;
-    background-color: orange;
-    width: 150px;
-    height: 100%;
-}
-
-.time{
-    background-color: black;
-    color: white;
-    border: 1px solid black;
-}
-
-table{
+    background-color: indianred;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,11 +43,12 @@ table{
 }
 
 td{
-    width: 108px;
-    height: 108px;
+    width: 110px;
+    height: 110px;
     border: 1px solid;
     text-align: center;
     font-size: 35px;
+    background-color: white;
 }
 
 td:hover{
@@ -83,18 +61,134 @@ td:hover{
     background-color: powderblue;
 }
 
-.same {
-    animation: change 0.5s;
+#sale{
+    animation: sparkle 0.5s;
 }
 
-@keyframes change{
+.item {
+    animation: fadeIn 1s;
+}
+.remove {
+    animation: fadeOut 0.5s;
+}
+
+@keyframes fadeIn {
     0% {
-    opacity: 0;
-    transform: scale(1);
+        opacity: 0;
+        transform: translateY(-50%)
     }
+
     to {
         opacity: 1;
-        transform: scale(1.3);
+        transform: translateY(0%)
     }
 }
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle{
+    0% {
+    /* opacity: 0; */
+    transform: scale(1);
+    }
+    25% {
+        /* opacity: 1; */
+        transform: scale(1.3);
+    }
+    50% {
+        /* opacity: 1; */
+        transform: scale(1);
+    }
+    75%{
+        /* opacity: 0; */
+        transform: scale(1.3);
+    }
+    100%{
+        /* opacity: 0; */
+        transform: scale(1);
+    }
+}
+
+/* 타이머 막대 */
+#timeBar{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+}
+
+/* Navigation */
+#nav{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 150px;
+    height: 100%;
+    align-items:center;
+    background-color: rgba(205, 92, 92, 0.378);
+    font-size: 23px;
+}
+
+#gameName{ 
+    color: indianred;
+    font-size: 36px;
+}
+
+#stage{
+    background-color: indianred;
+    padding:3px;
+    color:white;
+    border-radius : 5px;
+}
+
+#mission{
+    background-color: indianred;
+    padding:3px;
+    color:white;
+    border-radius : 5px;
+}
+
+#bag{
+    background-image: url('./bag.png');
+    background-size:cover;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hitItem{
+    background-color: white;
+    border: 10px solid indianred;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer{
+    background-color: indianred;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+}
+
 
