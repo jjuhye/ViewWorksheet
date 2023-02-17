@@ -2,8 +2,25 @@
 let itemList=new Array(5);
 let itemCnt=10;
 const stage=1;
-const mission=20;
+let mission=20;
 const hitItem=null;
+let container=document.querySelector('#container');
+let main=document.querySelector('#main');
+
+let start=document.querySelector('#start');
+start.addEventListener('click',()=>gameStart());
+function gameStart(){
+    container.style='visibility: visible';
+    main.style='visibility: hidden';
+    // makeShowcase();
+    time.init();
+    if(time.isGameOver){
+        let bigBag=document.querySelector('#bigBag');
+        let start=document.querySelector('#start');
+        bigBag.innerHTML='Game Over';
+        start.innerHTML='게임 재시작';
+    }
+}
 
 function checkSame(){
     let y1=s1.getAttribute("data-y");
@@ -12,6 +29,7 @@ function checkSame(){
     let x2=s2.getAttribute("data-x");
     if(s1!==s2 && s1.innerHTML===s2.innerHTML && (x1===x2 || y1===y2)){
         delItem(y1,y2,x1,x2);
+        time.reset();
     }else{
     itemList[y1][x1].className="item";
     itemList[y2][x2].className="item";
@@ -23,42 +41,64 @@ function checkSame(){
 function delItem(y1,y2,x1,x2){
     itemList[y1][x1].innerHTML='';
     itemList[y2][x2].innerHTML='';
-    arrUpdate();
+    // itemList[y1][x1].className="item";
+    // itemList[y2][x2].className="item";
     itemList[y1][x1].className="remove";
     itemList[y2][x2].className="remove";
+    mission--;
+    checkScore(); //미션 count감소
+    arrUpdate();
     s1=0;
     s2=0;
-    //미션 count감소
     //장바구니 추가 이미지
     //히트면 장바구니 히트 이미지 + 히트 아이템 바꾸기
 }
 
 function arrUpdate(){
     for(let i=0; i<5; i++){
-        for(let k=0; k<5; k++){
-            if(itemList[i][k].innerHTML=='') {
-                console.log("inner체크")
-                for(let y=i; y<0; y--){
-                    let num=itemList[y-1][k].innerHTML;
-                    itemList[y][k].innerHTML=num;
+        for(let k=4; k>=0; k--){
+            if(itemList[k][i].innerHTML=='') {
+                if(k==0){
+                    itemList[k][i].innerHTML=newItem(i);
+                    itemList[k][i].className='item';
+                }else{
+                    for(let c=k; c>0; c--){
+                        // console.log("inner체크")
+                        itemList[c][i].innerHTML=itemList[c-1][i].innerHTML;
+                        itemList[c-1][i].innerHTML='';
+                        itemList[c][i].className='item';
+                    }
+                    itemList[0][i].innerHTML=newItem(i);
+                    itemList[0][i].className='item';
+                    k++;
                 }
-                itemList[0][k].innerHTML=newItem(k);
             }
         }
     }
 }
 
-function newItem(k){
+function newItem(i){
     while(true){
         let num=Math.floor(Math.random()*itemCnt+1);
-        if((itemList[1][k].innerHTML==num)||
-           (k>0 && itemList[0][k-1].innerHTML==num)||
-           (k<4 && itemList[0][k+1].innerHTML==num)){
+        if((itemList[1][i].innerHTML==num)||
+           (i>0 && itemList[0][i-1].innerHTML==num)||
+           (i<4 && itemList[0][i+1].innerHTML==num)){
             continue;
         }
         return num;
     }
 }
+
+function checkScore(){
+    let score=document.querySelector('#mission');
+    score.innerHTML=mission;
+}
+
+function checkStage(){
+    let stg=document.querySelector('#stage');
+    stg.innerHTML=stage;
+}
+
 
 let tdList=[...document.querySelectorAll('td')];
 
@@ -78,8 +118,12 @@ function makeShowcase(){
             idx++;
         }
     }
+checkScore();
+checkStage();
 }
+
 makeShowcase();
+
 
 let s1=0;
 let s2=0;
@@ -104,5 +148,5 @@ itemList.forEach(tr=>{
 let canvas=document.querySelector('#canvas');
 let ctx=canvas.getContext('2d');
 let timer=document.querySelector('#timer');
-const time=new Time(canvas, ctx, timer);
-time.init();
+const time=new Time(canvas, ctx, timer,container, main);
+// time.init();

@@ -7,16 +7,84 @@
     font-family: 'Jua', sans-serif;
 }
 
+html{height: 100vh; width: 100%;}
 body{
-    width: 100vw;
     height: 100vh;
-    display : flex;
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
+    /* padding: 30px; */
     background-image: url(./pinkBG.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: darkgray;
+}
+
+/* #canvasC{
+    background-color: white;
+    color: red;
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px;
+    font-size: 100px;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 1;
+} */
+
+/* Main 화면 */
+#main{
+    background-color: indianred;
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    display: flex;
+    padding: 2%;
+    /* justify-content: space-between; */
+    gap: 10px;
+    position: absolute;
+}
+
+#gola{
+    background-color: white;
+    width: 60%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 80px; color:indianred; text-align: center;
+
+}
+
+#bigBag{
+    background-image: url(./bag.png);
+    background-size:cover;
+    width:300px;
+    height: 300px;
+    text-align: center;
+    font-size: 120px;
+    color: black;
+}
+
+#menu{
+    background-color: white;
+    width: 40%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: space-between;
+    align-items: center;
+    color: indianred;
 }
 
 #container{
@@ -25,13 +93,15 @@ body{
     height: 600px;
     border-radius: 10px;
     display: flex;
+    flex-direction: row;
     padding: 10px;
     justify-content: space-between;
+    position: absolute;
+    /* z-index: 2; */
 }
 
 /* 진열장 */
 #showcase{
-    /* border: 10px indianred solid; */
     border-radius: 10px;
     width: 580px;
     height: 100%;
@@ -66,10 +136,10 @@ td:hover{
 }
 
 .item {
-    animation: fadeIn 1s;
+    animation: fadeIn 1s 0.2s;
 }
 .remove {
-    animation: fadeOut 0.5s;
+    animation: fadeOut 0.3s;
 }
 
 @keyframes fadeIn {
@@ -168,6 +238,11 @@ td:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+}
+
+#sale{
+    z-index: 0;
 }
 
 #hitItem{

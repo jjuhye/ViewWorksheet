@@ -1,5 +1,5 @@
 class Time {
-    constructor(canvas, ctx, timer) {
+    constructor(canvas, ctx, timer , container, main) {
         this.canvas=canvas;
         this.ctx=ctx;
         this.y=0;
@@ -9,11 +9,27 @@ class Time {
         this.sec=19;
         this.ms=60;
         this.cnt=0;
+        this.gameOver=false;
+        this.container=container;
+        this.main=main;
+        this.start=start;
     }
 
     init() {
-        this.timer1 = setInterval(this.timeBar, 24);
+        this.timer1 = setInterval(()=>{
+            this.timeBar();
+            if(this.gameOver){
+            clearInterval(this.timer2);
+                this.isGameOver();
+            }
+        }, 24);
         this.timer2 = setInterval(this.timeBox, 10);
+    }
+
+    isGameOver(){
+        this.container.style='visibility: hidden';
+        this.main.style='visibility: visible';
+        return true;
     }
     
     //막대 타이머
@@ -41,8 +57,7 @@ class Time {
         }
         if(this.sec==0){
             this.ms=0;
-            clearInterval(this.timer2);
-            // gameOver(){}
+            this.gameOver=true;
         }
         let showSec=this.sec;
         let showMs=this.ms;
@@ -52,14 +67,12 @@ class Time {
     }
 
     //리셋
-    // reset() {
-    //     running = 0;
-    //     time = 0;
-    //     clearTimeout(timerid);
-    //     document.getElementById('stopTime').innerHTML="";
-    //     document.getElementById("start").innerHTML = "시작";
-    //     document.getElementById("output").innerHTML = "<b>00:00:00</b>";
-    //     document.getElementById("startPause").style.backgroundColor = "green";
-    //     document.getElementById("startPause").style.borderColor = "green";
-    // }
+    reset() {
+        this.y=0;
+        this.sec=19;
+        this.ms=60;
+        this.cnt=0;
+
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
 }

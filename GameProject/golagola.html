@@ -10,7 +10,19 @@
     <script src="./golagola.js" defer></script>
 </head>
 <body>
-    <div id="container">
+    <!-- <canvas id="canvasC"><div>캔버스</div></canvas> -->
+    <div id="main" style="visibility:visible">
+        <div id="gola">
+            <div>골라골라</div>
+            <div id='bigBag'></div>
+        </div>
+
+        <div id="menu">
+            <button id="start">게임 시작</button>
+            <button id="intro">게임 설명</button>
+        </div>
+    </div>
+    <div id="container" style="visibility: hidden">
         <div id="showcase">
             <table>
                 <tr>
@@ -60,7 +72,8 @@
             <div style="padding-left: 10px">Stage <span id="stage">#</span></div>
             <div style="padding-left: 10px">Mission <span id="mission">#</span></div>
             <div id="bag">
-                <img src="./big-sale.png" id="sale" style="display:none" width=120px>
+                <img src="./big-sale.png" id="sale" width=120px>
+                <!--  style="display:block"  -->
             </div>
             <div style="text-align:center"> Hit 아이템
                 <div class="seem" id="hitItem">히트아이템</div>
