@@ -21,20 +21,6 @@ body{
     background-color: darkgray;
 }
 
-/* #canvasC{
-    background-color: white;
-    color: red;
-    width: 800px;
-    height: 600px;
-    border-radius: 10px;
-    display: flex;
-    padding: 10px;
-    font-size: 100px;
-    justify-content: space-between;
-    position: absolute;
-    z-index: 1;
-} */
-
 /* Main 화면 */
 #main{
     background-color: indianred;
@@ -43,38 +29,36 @@ body{
     border-radius: 10px;
     display: flex;
     padding: 2%;
-    /* justify-content: space-between; */
-    gap: 10px;
-    position: absolute;
+    /* position: absolute; */
 }
 
 #gola{
     background-color: white;
-    width: 60%;
+    width: 70%;
     height: 100%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     justify-content: space-between;
     align-items: center;
-    font-size: 80px; color:indianred; text-align: center;
-
+    font-size: 90px; color:indianred; text-align: center;
 }
 
 #bigBag{
     background-image: url(./bag.png);
-    background-size:cover;
-    width:300px;
-    height: 300px;
-    text-align: center;
-    font-size: 120px;
+    background-size: cover;
+    width:80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 160px;
+    line-height: 90%;
     color: black;
 }
 
 #menu{
-    background-color: white;
     width: 40%;
     height: 100%;
     border-radius: 10px;
@@ -82,9 +66,26 @@ body{
     flex-direction: column;
     padding-top: 50px;
     padding-bottom: 50px;
-    justify-content: space-between;
     align-items: center;
-    color: indianred;
+}
+
+#start, #intro{
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 80px;
+    background-color: indianred;
+    border: 5px outset rgb(234, 119, 119);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px pink;
+    font-size: 200%;
+    color: white;
+}
+
+#start:hover, #intro:hover{
+    background-color: rgb(172, 71, 71);
+    border-color: indianred;
+    box-shadow: 0px 0px 15px pink;
+    cursor: pointer;
 }
 
 #container{
@@ -119,11 +120,18 @@ td{
     text-align: center;
     font-size: 35px;
     background-color: white;
+    /* color: rgba(255, 255, 255, 0); */
+}
+
+.im{
+    width: 90px;
+    height: 90px;
+    text-align: center;
 }
 
 td:hover{
     font-size: 40px;
-    transition: font-size 0.5s;
+    transition: font-size 1.5s;
     cursor: pointer;
 }
 
@@ -136,11 +144,11 @@ td:hover{
 }
 
 .item {
-    animation: fadeIn 1s 0.2s;
+    animation: fadeIn 0.8s 0.3s;
 }
-.remove {
+/* .remove {
     animation: fadeOut 0.3s;
-}
+} */
 
 @keyframes fadeIn {
     0% {
@@ -153,7 +161,7 @@ td:hover{
         transform: translateY(0%)
     }
 }
-@keyframes fadeOut {
+/* @keyframes fadeOut {
     0% {
         opacity: 1;
     }
@@ -161,7 +169,7 @@ td:hover{
     to {
         opacity: 0;
     }
-}
+} */
 
 @keyframes sparkle{
     0% {

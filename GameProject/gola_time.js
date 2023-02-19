@@ -16,6 +16,7 @@ class Time {
     }
 
     init() {
+        this.gameOver=false;
         this.timer1 = setInterval(()=>{
             this.timeBar();
             if(this.gameOver){
