@@ -29,7 +29,8 @@ body{
     border-radius: 10px;
     display: flex;
     padding: 2%;
-    /* position: absolute; */
+    position: absolute; 
+    z-index: 1;
 }
 
 #gola{
@@ -98,7 +99,22 @@ body{
     padding: 10px;
     justify-content: space-between;
     position: absolute;
-    /* z-index: 2; */
+    z-index: 2;
+}
+
+#levelUp{
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    color: indianred;
+    font-size: 150px;
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(247, 247, 244, 0.74);
 }
 
 /* 진열장 */
@@ -139,8 +155,8 @@ td:hover{
     background-color: powderblue;
 }
 
-#sale{
-    animation: sparkle 0.5s;
+.cart{
+    animation: sparkle 1s;
 }
 
 .item {
@@ -174,23 +190,23 @@ td:hover{
 @keyframes sparkle{
     0% {
     /* opacity: 0; */
-    transform: scale(1);
+    transform: scale(0, 0);
     }
     25% {
         /* opacity: 1; */
-        transform: scale(1.3);
+        transform: scale(1.3, 1.3);
     }
     50% {
         /* opacity: 1; */
-        transform: scale(1);
+        transform: scale(0.5, 0.5);
     }
     75%{
         /* opacity: 0; */
-        transform: scale(1.3);
+        transform: scale(1.3, 1.3);
     }
     100%{
         /* opacity: 0; */
-        transform: scale(1);
+        transform: scale(0, 0);
     }
 }
 
@@ -262,6 +278,11 @@ td:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#hitImg{
+    width: 95px;
+    height: 95px;
 }
 
 #timer{

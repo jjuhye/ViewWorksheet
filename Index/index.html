@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>1조 프로젝트</title>
+  <link rel="stylesheet" href="index.css">  
+</head>
+<body>
+
+  <div class="container">
+
+    <header id="intro">
+
+        <h1 class="logo">
+            <a href="#"> 1조 프로젝트 </a>
+        </h1>
+        
+        <nav class="menu">
+            <ul class="menu_ul">
+                <li class="one"><a href="#" onclick="openIntro()"> Team 소개 </a></li>
+                <li class="two"><a href="#"  onclick="openMini()"> Mini 탈출게임 </a></li>
+                <li class="three"><a href="#" onclick="openGola()"> GolaGola 게임 </a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <main class="context">
+        <!-- html 내부에 다른 html이 올수있다  -->
+        <iframe src="./canvasGame/game.html"></iframe>
+        <iframe src="./canvasGame/game.html"></iframe>
+    </main>
+    <footer>
+        <p>&copy; 박연미 2022 02/18</p>
+    </footer>
+
+    <script>
+        let iframe = document.querySelector("iframe");
+        function openIntro(){
+            iframe.src="./intro/intro.html";
+        }
+        function openMini(){
+            iframe.src="./game1to50/index.html";
+        }
+        function openGola(){
+            iframe.src="./canvasGame/game.html";
+        }
+    </script>
+  </div>
+
+</body>
+</html>

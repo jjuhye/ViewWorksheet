@@ -1,0 +1,31 @@
+.tic{
+    width: 700px;
+    height: 650px;
+    background-color: rgb(148, 197, 216);
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: 22px;
+}
+
+.tic table{
+    height: 10vh;
+    width: 50vh;
+
+    border-spacing: 5px;
+    border-collapse: separate;
+    background-color: rgb(255, 237, 210);
+    border-radius: 5px;
+}
+
+.tic .containertic td{
+    height: 100px;
+    width: 100px;
+    border: 1px solid rgb(143, 141, 141);
+    background-color: rgb(206, 205, 205);
+    font-size: 50px;
+    font-weight: 600;
+}
+

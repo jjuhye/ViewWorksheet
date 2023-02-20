@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+  <title>3조 프로젝트</title>
+  <link rel="stylesheet" href="index.css">  
+</head>
+<body>
+
+  <div class="container">
+
+    <header id="intro">
+
+        <h1 class="logo">
+            <a href="#"> 3조 프로젝트 </a>
+        </h1>
+        
+        <nav class="menu">
+            <ul class="menu__ul">
+                <li class="one"><a href="#" onclick="openIntro()"> 팀 소개 </a></li>
+                <li class="two"><a href="#"  onclick="minigame()"> 미니 탈출 게임  </a></li>
+                <li class="three"><a href="#" onclick="openMoving()"> GolaGola </a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <main class="context">
+        <!-- html 내부에 다른 html이 올수있다  -->
+        <iframe src="./intro/intro.html"></iframe>
+    </main>
+
+    <script>
+        let iframe = document.querySelector("iframe");
+        function openIntro(){
+            iframe.src="./intro/intro.html";
+        }
+        function minigame(){
+            iframe.src="./pik_project/project.html";
+        }
+        function openMoving(){
+            iframe.src="./ljh_project/golagola.html";
+        }
+    </script>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+.jumpGame{
+    position: absolute;
+    margin-left: 22px;
+    z-index: -1;
+    width: 700px;
+    height: 650px;
+}
+
+.jumpGame .containerJump #canvas{
+    background-color: gray;
+    background-image: url(jumpMap.png);
+    background-size: 200%;
+}
+
+.jlife {
+    position: absolute;
+    height: 5%;
+    width: 50%;
+    background-color: brown;
+    border-radius: 5px;
+    z-index: 11;
+}
+
+.jgragh{
+    height: 5%;
+    width: 50%;
+    left: 1px;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.cgragh{
+    top: 7%;
+    height: 5%;
+    width: 50%;
+    left: 1px;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.clevel{
+    top: 7%;
+    height: 5%;
+    width: 2%;
+    left: 1px;
+    position: absolute;
+    background-color: rgb(223, 238, 88);
+    border-radius: 5px;
+    z-index: 11;
+}
+

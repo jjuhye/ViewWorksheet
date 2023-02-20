@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding:0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            color: rgb(243, 225, 201);
+        }
+        main{
+            display: flex;
+            flex-direction: row;
+            background-color: rgb(43, 42, 42);
+            background-image: url(img/gameboard.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+            height: 100%;
+            justify-content: center;
+            align-items: flex-start;
+            gap: -150px;
+        }
+    
+        .team{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p{
+            margin-top: 50px;
+            font-size: 30px;
+        }
+        img:hover{
+        transform: scale(1.2); 
+        transition: 1s;
+        
+        }
+        img{
+            margin-top: 40px;
+            width: 40%;
+            height: 40%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="team">
+                <img src="./img/ddangddangs.jfif" alt="White Rabbit">
+                <h2>박일권</h2>
+                <p>
+                    미니탈출 게임
+                </p><br>
+                게임4개를 클리어 하면 탈출<br>
+                <img src="./img/minigame.png" alt="game">
+        </div>
+        
+        <div class="team">
+                <img src="./img/ryon.gif" alt="Cheshire Cat">
+                <h2>이주혜</h2>
+                <p>
+                    골라골라 게임</p><br>
+                    같은 그림골라서 없애기<br>
+                    <img src="./img/golagola.png" alt="game">
+        </div>
+
+    </main>
+</body>
+</html>

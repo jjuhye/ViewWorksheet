@@ -10,18 +10,30 @@
     <script src="./golagola.js" defer></script>
 </head>
 <body>
-    <!-- <canvas id="canvasC"><div>캔버스</div></canvas> -->
     <div id="main" style="visibility: visible">
         <div id="gola">
             <div>Gola Gola</div>
             <div id='bigBag'></div>
         </div>
+        <!-- <div id="story">
+            <H1>게임 설명</H1><br>
+            <div id='board'>
+            1. 가로나 세로로 배치된 같은 종류의 상품 두 개를 클릭하여 장바구니에 담으면 점수 획득 (1개 아이템 삭제 시 1점)<br>
+            2. 지정된 시간 (20초)안에 담으면 시간 복구<br>
+            3. 주어진 미션 점수만큼 달성하면 Level Up되며 달성해야 할 미션 점수가 높아진다.<br>
+            4. 단계별로 아이템 종류가 하나씩 증가되어 난이도 상승<br>
+            5. 각 단계별 랜덤으로 노출되는 히트 상품을 담게 되면 2배의 점수를 획득한다.<br>
+            6. 지정 시간 안에 아이템을 담지 못하면 Game Over<br>
+            7. 더 이상 담을 수 있는 상품이 없어도 Game Over<br>
+            </div>
+        </div> -->
 
         <div id="menu">
             <button id="start">게임 시작</button>
-            <button id="intro">게임 설명</button>
+            <!-- <button id="intro">게임 설명</button> -->
         </div>
     </div>
+    <div id="levelUp">Level Up~!</div>
     <div id="container" style="visibility: hidden">
         <div id="showcase">
             <table>
@@ -72,10 +84,9 @@
             <div style="padding-left: 10px">Mission <span id="mission">#</span></div>
             <div id="bag">
                 <img src="./big-sale.png" id="sale" width=120px>
-                <!--  style="display:block"  -->
             </div>
             <div style="text-align:center"> Hit 아이템
-                <div class="seem" id="hitItem">히트아이템</div>
+                <div class="seem" id="hitItem"></div>
             </div>
             <div id="timer">20:00</div>
         </div>
